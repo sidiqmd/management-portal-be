@@ -52,7 +52,7 @@ module.exports.getCategoryByNameNExcludeCategoryId = async (
 };
 
 module.exports.createCategory = async (name, description, activated) => {
-  logger().info(`insertCategory: ${name}, ${description}, ${activated}`);
+  logger().info(`createCategory: ${name}, ${description}, ${activated}`);
 
   const query = {
     text: 'INSERT INTO public.category (name, description, activated) VALUES ($1, $2, $3) RETURNING *',

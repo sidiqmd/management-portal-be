@@ -1,4 +1,3 @@
-// import * as AuthService from '../services/auth.service.js';
 const { logger } = require('../utils/logger');
 const { createUser, login, refreshToken } = require('../services/auth.service');
 

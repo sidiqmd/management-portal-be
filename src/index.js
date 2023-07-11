@@ -10,6 +10,7 @@ const mainRoute = require('./routes/main.route');
 const authRoute = require('./routes/auth.route');
 const categoryRoute = require('./routes/category.route');
 const postRoute = require('./routes/post.route');
+const membershipRoute = require('./routes/membership.route');
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.use(baseUrl, mainRoute);
 app.use(`${baseUrl}/auth`, authRoute);
 app.use(`${baseUrl}/category`, categoryRoute);
 app.use(`${baseUrl}/post`, postRoute);
+app.use(`${baseUrl}/membership`, membershipRoute);
 
 const port = process.env.PORT || 3000;
 const env = process.env.NODE_ENV || 'dev';

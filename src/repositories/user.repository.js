@@ -51,6 +51,18 @@ module.exports.updateUser = async (userId, email, fullname) => {
   return rows[0];
 };
 
+module.exports.upgradeUserToPremium = async (userId) => {
+  logger().info(`upgradeUserToPremium: ${userId}`);
+
+  const query = {
+    text: 'UPDATE public.user SET membership = $1 WHERE user_id = $2 RETURNING *',
+    values: ['Premium', userId],
+  };
+  const { rows } = await db.query(query);
+
+  return rows[0];
+};
+
 module.exports.updateRefreshToken = async (userId, refreshToken) => {
   logger().info(`updateRefreshToken: ${userId}, ${refreshToken}`);
 
