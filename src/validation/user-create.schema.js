@@ -5,5 +5,4 @@ module.exports = Joi.object({
   password: Joi.string().required(),
   email: Joi.string().email().required(),
   fullname: Joi.string().required(),
-  membership: Joi.string().valid('Premium', 'Normal').required(),
 });

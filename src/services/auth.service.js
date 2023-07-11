@@ -4,6 +4,7 @@ const {
   getUserByUsername,
   insertUser,
   updateRefreshToken,
+  getUserByUserId,
 } = require('../repositories/user.repository');
 const { logger } = require('../utils/logger');
 
@@ -60,18 +61,13 @@ module.exports.login = async (data) => {
 module.exports.refreshToken = async (userId, refreshToken) => {
   logger().info(`refreshToken`);
 
-  const user = await getUserByUserId(userId);
+  const tokens = generateToken({ sub: userId });
+  console.log(tokens);
 
-  if (user && user.refresh_token === refreshToken) {
-    const tokens = generateToken({ sub: userId });
+  await updateRefreshToken(userId, tokens.refreshToken);
 
-    await updateRefreshToken(userId, tokens.refreshToken);
-
-    return {
-      accessToken: tokens.accessToken,
-      refreshToken: tokens.refreshToken,
-    };
-  } else {
-    throw new Error('Invalid refresh token');
-  }
+  return {
+    accessToken: tokens.accessToken,
+    refreshToken: tokens.refreshToken,
+  };
 };
