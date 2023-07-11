@@ -1,0 +1,41 @@
+{
+  "name": "management-portal-be",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/sidiqmd/management-portal-be.git",
+  "author": "Mohamed Siddiq <sidiqmd@gmail.com>",
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "clean": "rm -rf dist && rm -rf node_modules",
+    "start": "node src/index.js",
+    "start:dev": "cross-env NODE_ENV=development nodemon ./src",
+    "migrate": "node-pg-migrate",
+    "migrate:up": "DATABASE_URL=postgresql://postgres:postgres@localhost:5432/management_portal npm run migrate up"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "get-caller-file": "^2.0.5",
+    "helmet": "^7.0.0",
+    "hpp": "^0.2.3",
+    "joi": "^17.9.2",
+    "jsonwebtoken": "^9.0.1",
+    "lodash": "^4.17.21",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "pg": "^8.11.1",
+    "winston": "^3.9.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "node-pg-migrate": "^6.2.2",
+    "nodemon": "^3.0.1"
+  }
+}
