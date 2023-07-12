@@ -11,7 +11,8 @@
     "start": "node src/index.js",
     "start:dev": "cross-env NODE_ENV=development nodemon ./src",
     "migrate": "node-pg-migrate",
-    "migrate:up": "DATABASE_URL=postgresql://postgres:postgres@localhost:5432/management_portal npm run migrate up"
+    "migrate:up:local": "DATABASE_URL=postgresql://postgres:postgres@localhost:5432/management_portal npm run migrate up",
+    "migrate:up:dev": "DATABASE_URL=postgresql://dbmasteruser:mp_password_1234@ls-2231ed23bf4b8906f1c59c32c789a15cfaf8ce1b.cqqkuzvi3vq8.us-east-1.rds.amazonaws.com:5432/management_portal npm run migrate up"
   },
   "dependencies": {
     "axios": "^1.4.0",

@@ -16,8 +16,8 @@ module.exports.getNormalPostList = async () => {
   logger().info('getNormalPostList');
 
   const query = {
-    text: 'SELECT * FROM public.post WHERE label = $1',
-    values: ['Normal'],
+    text: 'SELECT * FROM public.post WHERE  status = $1 AND label = $2',
+    values: ['Published', 'Normal'],
   };
   const { rows } = await db.query(query);
 
@@ -40,8 +40,8 @@ module.exports.getNormalPostByPostId = async (postId) => {
   logger().info(`getNormalPostByPostId: ${postId}`);
 
   const query = {
-    text: 'SELECT * FROM public.post WHERE post_id = $1 AND label = $2',
-    values: [postId, 'Normal'],
+    text: 'SELECT * FROM public.post WHERE post_id = $1 AND status = $2 label = $3',
+    values: [postId, 'Published', 'Normal'],
   };
   const { rows } = await db.query(query);
 

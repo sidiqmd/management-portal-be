@@ -7,12 +7,10 @@ const {
   updateCategory,
   deleteCategory,
 } = require('../controllers/category.controller');
-const categorySchema = require('../validation/category.schema');
+const categorySchema = require('../validations/category.schema');
 const { verifyAccessToken } = require('../middlewares/auth.middleware');
 
 const router = Router();
-
-router.get('/health', verifyAccessToken, (req, res) => res.send('Ok'));
 
 router.get('/', verifyAccessToken, getCategoryList);
 router.get('/:categoryId', verifyAccessToken, getCategoryByCategoryId);

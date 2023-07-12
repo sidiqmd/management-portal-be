@@ -23,7 +23,7 @@ module.exports.purchasePremiumMembership = async (user) => {
     mobile: '',
     name: fullname,
     amount: amount * 100,
-    callback_url: `${process.env.BASE_URL}/billplz-callback`,
+    callback_url: `${process.env.BILLPLZ_CALLBACK_URL}`,
     description: 'Premium Membership Upgrade',
     reference_1_label: 'Membership',
     reference_1: '',

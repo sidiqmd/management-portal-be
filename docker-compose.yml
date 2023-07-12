@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  addressbook:
+    build:
+      context: .
+    ports:
+      - 3000:3000
+    environment:
+      - STAGE=dev
+      - PORT=3000
+      - BASE_URL=/api/v1
+      - DATABASE_URL=postgresql://dbmasteruser:mp_password_1234@ls-2231ed23bf4b8906f1c59c32c789a15cfaf8ce1b.cqqkuzvi3vq8.us-east-1.rds.amazonaws.com:5432/management_portal
+      - ACCESS_TOKEN_KEY=tHnREhf1ic4T2xpGzXiWFSitgzhu7ydFf3gaBgXlrB9OdZkO7Hi82OD7HQ77
+      - REFRESH_TOKEN_KEY=w4dmSZKqlXrq3LuzozrEf5MCauInh3lUPAVErS963e5kN7fYv3VXIdDxc6bz
+      - BILLPLZ_URL=https://www.billplz-sandbox.com/api/v3
+      - BILLPLZ_COLLECTION_CODE=5nqfq9k2
+      - BILLPLZ_SECRET_KEY=c801dc73-e510-4200-9fe8-131fcfb79b0f
+      - BILLPLZ_X_SIGNATURE_KEY=S-ZQgUAF4jmf2OlygkDVC-fQ
+      - BILLPLZ_CALLBACK_URL=http://localhost:3000/api/v1/membership/callback

@@ -7,12 +7,10 @@ const {
   updatePost,
   deletePost,
 } = require('../controllers/post.controller');
-const postSchema = require('../validation/post.schema');
+const postSchema = require('../validations/post.schema');
 const { verifyAccessToken } = require('../middlewares/auth.middleware');
 
 const router = Router();
-
-router.get('/health', verifyAccessToken, (req, res) => res.send('Ok'));
 
 router.get('/', verifyAccessToken, getPostList);
 router.get('/:postId', verifyAccessToken, getPostByPostId);

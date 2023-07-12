@@ -7,9 +7,7 @@ const {
 
 const router = Router();
 
-router.get('/health', (req, res) => res.send('Ok'));
-
 router.get('/purchase', verifyAccessToken, purchasePremiumMembership);
-router.post('/billplz-callback', billplzCallback);
+router.post('/callback', billplzCallback);
 
 module.exports = router;
