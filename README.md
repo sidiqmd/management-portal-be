@@ -18,7 +18,7 @@ This project mainly 4 sub folders:-
 4. `validations` - files keep all api validation schema
 
 > **\*Note**:\* > _Deployed in AWS 
-> Lambda Endpoint: https://ciqddmcspj.execute-api.ap-southeast-1.amazonaws.com/
+> AWS Endpoint: http://3.86.116.175/api/v1/
 
 ## Stack and lib used
 
@@ -42,7 +42,7 @@ This project mainly 4 sub folders:-
 
 ### Deployment
 
-Install dependencies with:
+#### Install dependencies with:
 
 ```
 yarn install
@@ -51,6 +51,21 @@ Run locally:
 
 ```
 yarn start:dev
+```
+
+#### Seed database
+```
+bash seed-database.sh dev
+```
+
+#### Deploy to server
+Start
+```
+docker compose up -d
+```
+Stop
+```
+docker compose down
 ```
 
 ## API
