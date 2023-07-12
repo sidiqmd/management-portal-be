@@ -36,6 +36,7 @@ This project mainly 4 sub folders:-
 - Node
 - Yarn
 - PostgresSQL database
+- Docker
 
 ## Usage
 
